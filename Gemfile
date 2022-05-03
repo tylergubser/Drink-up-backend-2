@@ -23,7 +23,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,5 +51,8 @@ end
 gem "active_model_serializers", "~> 0.10.12"
 
 gem "aws-sdk-s3", "~> 1.113"
+
+
+gem "image_processing", "~> 1.2"
 
 gem "dotenv-rails", "~> 2.7"
