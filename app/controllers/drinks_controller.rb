@@ -1,9 +1,14 @@
 class DrinksController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     
+    # def index
+    #     render json: Drink.all
+    # end
+
     def index
-        render json: Drink.all
-    end
+        drink = Drink.all.with_attached_image
+        render json: drink, include: ['image'], status: :ok
+      end
 
     def create
         drink = Drink.create!(drink_params)
