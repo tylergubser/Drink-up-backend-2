@@ -11,6 +11,7 @@ class DrinksController < ApplicationController
       end
 
     def create
+        byebug
         drink = Drink.create!(drink_params)
         render json: drink, status: :created
     end

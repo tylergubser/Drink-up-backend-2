@@ -6,7 +6,7 @@ class MenusController < ApplicationController
 
     def show  
         menu = Menu.find(params[:id])
-        render json: menu.drinks
+        render json: menu
     end
 
 
@@ -15,11 +15,21 @@ class MenusController < ApplicationController
         render json: menu, status: :created
     end
 
+    def update
+        menu = Menu.find(params[:id])
+            if menu
+              menu.update(menu_params)
+              render json: menu
+            else
+              render json: { error: "Menu not found" }, status: :not_found
+            end
+    end
+
 
 
     private
 
     def menu_params
-        params.permit(:user_id)
+        params.permit(:user_id, :active)
     end
 end

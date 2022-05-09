@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     def destroy  
         order = Order.find(params[:id])
         order.destroy
+        head :no_content
         # order = Order.all 
         # order.destroy_all
     end
