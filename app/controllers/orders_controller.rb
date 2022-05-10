@@ -17,12 +17,23 @@ class OrdersController < ApplicationController
         # order.destroy_all
     end
 
+    def update
+        order = Order.find(params[:id])
+            if order
+              order.update(order_params)
+              render json: order
+            else
+              render json: { error: "Order not found" }, status: :not_found
+            end
+    end
+
+
 
 
     private
 
     def order_params
-        params.permit(:name, :phone_number, :drink_id, :user_id)
+        params.permit(:name, :phone_number, :drink_id, :user_id, :made)
     end
 
 end
